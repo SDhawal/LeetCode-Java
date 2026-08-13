@@ -30,6 +30,7 @@
 // Only one valid answer exists.
 
 // Solution:
+
 public class TwoSum {
     public int[] twoSum(int[] nums,int target){
         int result[] = new int[2];
@@ -56,3 +57,22 @@ public class TwoSum {
 
 // Time Complexity : O(n^2)
 // since we are using two loops to iterate through the array of size n and n-1 respectively. Time complexity is O(n^2)
+
+
+//better approach for two sum problem is to use HashMap to store the elements of the array and their indices. This way, we can check if the complement (target - current element) exists in the HashMap in O(1) time.
+
+public class TwoSum{
+    public int[] twoSum(int[] nums, int target){
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i< nums.length; i++){
+            int complement = target - nums[i];
+            if(map.containsKey(complement)){
+                return new int[]{map.get(complement), i};
+            }
+            map.put(nums[i],i);
+        }
+        return new int[]{};
+    }
+}
+
+// this will reduce the time complexity to O(n) since we are only iterating through the array once and performing constant time operations for each element.

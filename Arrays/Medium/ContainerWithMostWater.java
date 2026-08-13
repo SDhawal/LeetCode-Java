@@ -38,3 +38,4 @@ class ContainerWithMostWater {
 }
 
 // time complexity : O(n) this is because we are iterating through the array only once.
+// space complexity : O(1) we are using only constant space.
